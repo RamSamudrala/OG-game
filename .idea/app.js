@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
    
    const width = 10
    const tileSize = 48
+
+   const square = []
+   let score = 0
+   let level = 0
+   let playerPosition = 40
+   let enemeies = []
+   let playerDirection = 'right'
+   let gameRunning = true
+
    // y,w,x,z = corner walls | a,b = side walls | c,d = top/bottom walls
    // ) = lanterns | ( = fire pots | % = left door | ^ = top door | $ = stairs
    // * = slicer enemy | } = skeletor enemy | (space) = empty walkable area
@@ -36,11 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
    ]
 
    function createBoard(){
+    const currentMap = maps[level]
+     
     for (let i =0; i < 9; i++) {
          for (let j =0; j < 10; j++){
               const square = document.createElement('div')
-              square.setAttribute  
-         }
+              square.setAttribute('id', i * width + j) 
+              
+              const char = currentMap[i][j]
+              // add mapElement(square, char , i,j)
+              grid.appendChild(square)
+            }
     }
    }
+   createBoard()
+
+   console.log(squares)
 })
